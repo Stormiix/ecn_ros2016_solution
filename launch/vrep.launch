@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+    <include file="$(find vrep_plugin)/vrep.launch">
+        <arg name="scene" value="$(find ecn_ros2016)/scene/baxter.ttt"/>
+    </include>
+    
+    <rosparam file="$(find ecn_ros2016)/launch/colors.yaml" command="load" ns="colors"/>
+    
+    <node name="color_choice" pkg="ecn_ros2016" type="color_choice.py"/>
+    
+</launch>

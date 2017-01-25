@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<robot name="rightArm">
+  <joint name="Baxter_rightArm_joint1">
+    <limit lower="-3.14" upper="3.14"/>
+  </joint>
+  <joint name="Baxter_rightArm_joint2">
+    <limit lower="-3.14" upper="3.14"/>
+  </joint>
+  <joint name="Baxter_rightArm_joint3">
+    <limit lower="-3.14" upper="3.14"/>
+  </joint>
+  <joint name="Baxter_rightArm_joint4">
+    <limit lower="-3.14" upper="3.14"/>
+  </joint>
+  <joint name="Baxter_rightArm_joint5">
+    <limit lower="-3.14" upper="3.14"/>
+  </joint>
+  <joint name="Baxter_rightArm_joint6">
+    <limit lower="-3.14" upper="3.14"/>
+  </joint>
+  <joint name="Baxter_rightArm_joint7">
+    <limit lower="-3.14" upper="3.14"/>
+  </joint>  
+</robot>
