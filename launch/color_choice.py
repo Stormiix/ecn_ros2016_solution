@@ -2,17 +2,12 @@
 # -*- coding: utf-8 -*-
 #
 import rospy
-from vrep_common.srv import simRosStartSimulation, simRosGetObjectHandle
 from std_msgs.msg import String
 from pylab import tan, pi, randint
 
 # main
 rospy.init_node('bridge')
 
-# wait for simulation to be ready
-start = rospy.ServiceProxy('/vrep/simRosStartSimulation', simRosStartSimulation)
-start.wait_for_service()
-start.call()
 
 # color to publish
 color = String() 

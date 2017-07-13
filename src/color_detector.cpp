@@ -37,7 +37,6 @@ ColorDetector::ColorDetector(int r, int g, int b)
     const int sthr = 50;
     const int vthr = 30;
 
-
     // base segmentation
     two_segmentations = false;
     lower1 = cv::Scalar(std::max(h-hthr,0), std::max(s-sthr,0), std::min(v-vthr,0));
@@ -96,7 +95,7 @@ void ColorDetector::process(const cv::Mat &_im, cv::Mat &_im_processed)
         x = (m.m10/m.m00 - u0)* ipx;
 
         Z_ = 0.106/sqrt(a);
-        X_ = x*Z_;
+        X_ = -x*Z_;
 
         cv::drawContours(_im_processed, contours, 0, cv::Scalar(255,0,255), 2);
     }
