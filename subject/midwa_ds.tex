@@ -65,7 +65,7 @@ Le node secondaire est \texttt{/color\_choice} et a pour fonction d'indiquer la 
 Les topics à considérer sont :
 \begin{enumerate}
  \item \texttt{/vrep/image} : le simulateur y publie les images de la caméra de Baxter.
- \item \texttt{/vrep/joint\_setpoint} : le simulateur y souscrit pour les consignes de position des bras de Baxter.
+ \item \texttt{/vrep\_ros\_interface/joint\_command} : le simulateur y souscrit pour les consignes de position des bras de Baxter.
 \item \texttt{/color\_to\_detect} : le node secondaire y publie la couleur à détecter.
  \end{enumerate}
 
@@ -114,7 +114,7 @@ Le node devra :
 \begin{lstlisting}
 string data
 \end{lstlisting} 
- \item Publier sur \texttt{/vrep/joint\_setpoint} les consignes de position du bras. Ces messages doivent être de type \texttt{sensor\_msgs/JointState} dont la structure est:
+ \item Publier sur \texttt{/vrep\_ros\_interface/joint\_command} les consignes de position du bras. Ces messages doivent être de type \texttt{sensor\_msgs/JointState} dont la structure est:
 \begin{lstlisting}
 std_msgs/Header header
   uint32 seq
