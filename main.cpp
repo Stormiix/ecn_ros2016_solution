@@ -1,4 +1,4 @@
-#include <ecn_ros2016/color_detector.h>
+#include <ecn_common/color_detector.h>
 #include <ros/ros.h>
 #include <opencv2/highgui/highgui.hpp>
 // TODO include files for considered messages
@@ -30,12 +30,14 @@ int main(int argc, char** argv)
     int r,g,b;
 
     // init color detector for this (R,G,B) color
-    ColorDetector cd(r,g,b);
+    ecn::ColorDetector cd(r,g,b);
+    cd.setSaturationValue(165, 165);
     cv::Mat im_processed;
 
     // TODO init other things before control loop
     // publishers, subscribers...
 
+    double X, Z;
 
     while(ros::ok())
     {
@@ -46,8 +48,8 @@ int main(int argc, char** argv)
             
 
             // TODO
-            // control robot from cd.X() and cd.Z()
-            if(cd.X() < 0)
+            // control robot from X and Z
+            if(X < 0)
             {
 
 

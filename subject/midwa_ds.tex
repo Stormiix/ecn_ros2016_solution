@@ -32,7 +32,7 @@ L'examen est téléchargeable sous forme de package ROS avec la commande suivant
 \begin{center}\defaultstyle
 \begin{lstlisting}
 cd ~/ros/src
-git clone https://github.com/oKermorgant/ecn_ros2016B.git
+git clone https://github.com/oKermorgant/ecn_ros2016.git
 \end{lstlisting}
 \end{center}
 
@@ -133,7 +133,13 @@ float64[] effort
 \subsection{Traitement d'image}
 
 La partie détection de couleur est déjà implémentée dans une class appelée  \texttt{ColorDetector}. Cette classe est déjà instanciée mais les valeurs (r,g,b) doivent être 
-récupérées via le paramètre ROS. Les coordonnées 3D X et Z de l'objet détecté sont obtenues via \texttt{cd.X()} et \texttt{cd.Z()}.
+récupérées via le paramètre ROS. La position en x et l'aire de l'object détecté sont obtenues via \texttt{cd.x()} et \texttt{cd.area()}.
+Pour les objets considérés, une estimation de la position 3D est alors:
+\begin{equation*}
+  Z = \displaystyle \frac{0.106}{\sqrt{\text{area}}} \quad \text{et} \quad
+        X = x.Z
+\end{equation*}
+
 
 \subsection{Consignes de position}
 
@@ -143,10 +149,10 @@ Les consignes sont à renseigner dans le champ \texttt{position} du message. Les
 en fonction de la position de l'objet détecté :
  \begin{center}
   \begin{tabular}{|C{6cm}|C{5cm}|C{5cm}|}\hline
-   Articulation & Consigne si $X < 0$ & Consigne si $X > 0$ \\\hline
-   \texttt{Baxter\_leftArm\_joint1} & $-\pi/4 + \text{atan2}(-X-0.25,Z)$& $0$\\\hline
+   Articulation & Consigne si $X > 0$ & Consigne si $X < 0$ \\\hline
+   \texttt{Baxter\_leftArm\_joint1} & $-\pi/4 + \text{atan2}(X-0.25,Z)$& $0$\\\hline
    \texttt{Baxter\_leftArm\_joint6} & $0$& $-\pi/2$\\\hline
-   \texttt{Baxter\_rightArm\_joint1} & $0$& $\pi/4 - \text{atan2}(X-0.25,Z)$\\\hline
+   \texttt{Baxter\_rightArm\_joint1} & $0$& $\pi/4 - \text{atan2}(-X-0.25,Z)$\\\hline
    \texttt{Baxter\_rightArm\_joint6} & $-\pi/2$ & 0\\\hline
   \end{tabular}
  \end{center}
