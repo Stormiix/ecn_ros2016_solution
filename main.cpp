@@ -16,8 +16,10 @@ int main(int argc, char** argv)
 {
     // declare node and loop rate at 10 Hz
     ros::init(argc, argv, "control_node");
-    ros::NodeHandle nh("~");
+    ros::NodeHandle nh("~"), nhg;
     ros::Rate loop(10);
+    
+    
 
     // default values
     im_received = false;
