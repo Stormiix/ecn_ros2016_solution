@@ -1,6 +1,6 @@
 #include <ecn_common/color_detector.h>
 #include <ros/ros.h>
-#include <opencv2/highgui/highgui.hpp>
+
 // TODO include files for considered messages
 
 using std::cout;

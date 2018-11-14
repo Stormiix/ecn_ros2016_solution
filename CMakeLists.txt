@@ -13,6 +13,8 @@ find_package(catkin REQUIRED COMPONENTS
   ecn_common
 )
 
+find_package(OpenCV)
+
 catkin_package(
   #INCLUDE_DIRS include
   #LIBRARIES ecn_ros2016
@@ -24,8 +26,9 @@ catkin_package(
 # include_directories(include)
 include_directories(
   ${catkin_INCLUDE_DIRS}
+  ${OpenCV_include_dirs}
 )
 
 ## Declare a C++ library
 add_executable(baxter_color main.cpp)
-target_link_libraries(baxter_color ${catkin_LIBRARIES})
+target_link_libraries(baxter_color ${catkin_LIBRARIES} ${OpenCV_LIBS})
