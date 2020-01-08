@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="ecn_ros2016" type="baxter_color" name="track_blue" output="screen">
+        <param name="color" value="blue"/>
+    </node>
+    <node pkg="ecn_ros2016" type="baxter_color" name="track_red" output="screen">
+        <param name="color" value="red"/>
+    </node>
+    <node pkg="ecn_ros2016" type="baxter_color" name="track_green" output="screen">
+        <param name="color" value="green"/>
+    </node>
+    <node pkg="ecn_ros2016" type="baxter_color" name="track_yellow" output="screen">
+        <param name="color" value="yellow"/>
+    </node>
+</launch>
